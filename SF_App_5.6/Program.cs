@@ -4,6 +4,8 @@ namespace SF_App_5._6
 {
     class Program
     {
+        static (string firstName, string lastName, int age, string[] pets, string[] colors) user;
+
         static int CheckInput()
         {
             int num;
@@ -42,9 +44,8 @@ namespace SF_App_5._6
             }
         }
 
-        static void Main(string[] args)
+        static void AnswerQuestions()
         {
-            (string firstName, string lastName, int age, string[] pets, string[] colors) user;
             Console.Write("Введите свое имя:\t");
             user.firstName = Console.ReadLine();
             Console.Write("Введите фамилию:\t");
@@ -64,15 +65,24 @@ namespace SF_App_5._6
             Console.Write("Сколько у Вас любимых цветов?\t");
             int colorsNmber = CheckInput();
             user.colors = GetArray("цвет", colorsNmber);
+        }
 
+        static void PrintQuestionnaire()
+        {
             Console.WriteLine("\nРезультат опроса:");
             ShowAnswers(string.Format($"{user.firstName} {user.lastName}"));
             ShowAnswers(string.Format($"Вам {user.age} лет"));
 
             if (user.pets.Length > 0) { ShowAnswers("Ваше любимое животное:\t", user.pets); }
-            else { Console.WriteLine("Домашних животных у Вас нет");}
+            else { Console.WriteLine("Домашних животных у Вас нет"); }
 
             ShowAnswers("Ваши любимые цвета:\t", user.colors);
+        }
+
+        static void Main(string[] args)
+        {
+            AnswerQuestions();
+            PrintQuestionnaire();
 
             Console.ReadKey();
         }
