@@ -44,7 +44,7 @@ namespace SF_App_5._6
             }
         }
 
-        static void AnswerQuestions()
+        static void AskQuestions()
         {
             Console.Write("Введите свое имя:\t");
             user.firstName = Console.ReadLine();
@@ -81,7 +81,7 @@ namespace SF_App_5._6
 
         static void Main(string[] args)
         {
-            AnswerQuestions();
+            AskQuestions();
             PrintQuestionnaire();
 
             Console.ReadKey();
